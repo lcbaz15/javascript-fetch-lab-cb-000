@@ -11,9 +11,10 @@ function Issue(attributes){
 }
 
 function Repo(attributes){
-  this.url = attributes.url
+  this.url = attributes.url;
 }
 
 Issue.prototype.template = function(){
-  var template = `<li>Title: <a href="${this.url}".${this.title} </a>`
-}
+  var template = `<li>Title: <a href="${this.url}".${this.title} </a><span> | Body: ${this.body}</span></li>`
+  return template;
+};
