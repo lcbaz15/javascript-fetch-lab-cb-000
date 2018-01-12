@@ -41,4 +41,13 @@ function createIssue() {
 
 //Fetch all issues through the GitHUb API and display / append to DOM
 
-
+function getIssues(data) {
+  fetch(`${baseApi}repos/${fork}/issues`).
+    then(resp => {
+      resp.json().then( data => {
+        for (let i = 0; i < data.lnegth; i++) {
+          displayIssue(new Issue(data[i]));
+        }
+      })
+    })
+}
