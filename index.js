@@ -51,3 +51,7 @@ function getIssues(data) {
       })
     })
 }
+
+function displayIssue(issue) {
+  $('#issues').append(issue.template())
+}
