@@ -18,3 +18,27 @@ Issue.prototype.template = function(){
   var template = `<li>Title: <a href="${this.url}">${this.title} </a><span> | Body: ${this.body}</span></li>`
   return template;
 };
+
+Repo.prototype.template = function(){
+  var template = `<h3>Forked Successfully!</h3><a href="${this.url}"> ${this.url}</a>`
+  return template;
+};
+
+//Crate an issue through the GitHub API
+
+function createIssue() {
+  const issueTitle = document.getElementById('title').value
+  const issueBody = document.getElementById('body').value
+  const postData = { title: issueTitle, body: issueBody }
+  fetch(`${baseApi}repos/${fork}/issues`, {
+    method: 'post',
+    headers: {
+      'Authorization': `token ${getToken()}`
+    },
+    body: JSON.stringify(postData)
+  }).then(resp => getIssues())
+}
+
+//Fetch all issues through the GitHUb API and display / append to DOM
+
+
