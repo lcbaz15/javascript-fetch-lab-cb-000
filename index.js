@@ -15,6 +15,6 @@ function Repo(attributes){
 }
 
 Issue.prototype.template = function(){
-  var template = `<li>Title: <a href="${this.url}".${this.title} </a><span> | Body: ${this.body}</span></li>`
+  var template = `<li>Title: <a href="${this.url}">${this.title} </a><span> | Body: ${this.body}</span></li>`
   return template;
 };
